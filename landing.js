@@ -32,8 +32,6 @@ $(() => {
 		$(`#select-container`).removeClass('d-none');
 		removeLoading();
 		$(`#submit`).attr('disabled', false);
-
-		// window.location = `./calls.html?symbol=${symbol}`;
 	})
 
 	$(`#go`).click(async (e) => {
