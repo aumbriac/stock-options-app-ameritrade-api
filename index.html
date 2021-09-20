@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Stock Options App</title>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Red+Hat+Text&display=swap" rel="stylesheet">
+	<link rel='stylesheet' href='style.css'>
+</head>
+<body>
+	<main>
+		<div class="px-4 py-5 my-5 text-center bg-darker">
+			<h1 class="display-5 fw-bold">Stock Options App</h1>
+			<div class="col-lg-6 mx-auto">
+				<p class="lead mb-2">Quickly identify potentially profitable stock options trades and watch price and Greeks movement in real-time. Enter a symbol and tap 'Go' to begin.</p>
+				<div class="container">
+					<form id="symbol-form">
+						<label class="custom-label">Enter Symbol</label>
+						<input required onkeyup="this.value = this.value.toUpperCase();" placeholder='Enter a symbol'
+							name='symbol' id='symbol-input' class='search-field form-control-lg' autocomplete="off"
+							type='text'>
+							<br />
+						<button id='submit' type="submit" class="btn btn-primary btn-lg mt-3">Set Symbol</button>
+					</form>
+					<div id="select-container" class="d-none">
+						<label class="custom-label">Select Contract Type</label>
+						<select id="contract-type" class="form-control-lg mt-3">
+							<option>CALL</option>
+							<option>PUT</option>
+						</select>
+						<br />
+						<label class="custom-label">Select Date</label>
+						<select id="date" class="form-control-lg mt-3">
+
+						</select>
+						<button id='go' class="btn btn-primary btn-lg mt-3 d-block mx-auto btn-lg">Go!</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="small text-center fixed-bottom mb-3">Not financial advice</div>
+	</main>
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+	integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+	crossorigin="anonymous"></script>
+<script src="landing.js"></script>
+</html>
