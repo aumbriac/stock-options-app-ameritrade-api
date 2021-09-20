@@ -113,20 +113,11 @@ const renderTable = async () => {
 			dateMap = data.putExpDateMap;
 		break;
 	}
-	// let maxVolumeArray = [],
-	// 	maxVolume;
-	// Object.values(dateMap).map((val, idx) => {
-	// 	$.map(val, (v, i) => {
-	// 		maxVolumeArray.push(v[idx].totalVolume)
-	// 	})
-	// 	maxVolume = Math.max(...maxVolumeArray);
-	// })
 	
-
 	$.map(dateMap, (val, idx) => {
 		
 		let date = idx.substr(0, 10);
-		// Date header
+
 		$(`table`).append(`<tr><th class="date-row" colspan="100%">${date}</th></tr>`);
 		$.map(val, (val, idx) => {
 				beginRow(idx, val[0].strikePrice, price);
@@ -164,12 +155,8 @@ const updateTable = async () => {
 		$.map(data.callExpDateMap, (val, idx) => {
 			let date = idx.substr(0, 10);
 
-		// Map through data stored within each call expiration date
-			// let strikePrice = idx, val[0].strikePrice.toString();
 			$.map(val, (val, idx) => {
-				if (val[0].strikePrice < price){
-					// alert(val[0].strikePrice + ' is less than ' + price)
-				}
+
 				updateCell(`volume`, idx, thousandsFormat(val[0].totalVolume));
 				updateCell(`oi`, idx, thousandsFormat(val[0].openInterest));
 				updateCell(`mark`, idx, (val[0].mark * 100).toFixed(2));
@@ -181,14 +168,6 @@ const updateTable = async () => {
 				updateCell(`theta`, idx, checkNaN(val[0].theta));
 				updateCell(`vega`, idx, checkNaN(val[0].vega));
 				updateCell(`rho`, idx, checkNaN(val[0].vega));
-
-			// callStrikePriceArray.push(idx);
-			// callVolumeArray.push(thousandsFormat(val[0].totalVolume));
-			// maxCallVolume = Math.max(...callVolumeArray);
-			// if (maxCallVolume == val['totalVolume']) {
-			// 	topCallOption = val;
-			// 	topCallOptionStrikePrice = idx;
-			// }
 		})
 	})
 }
@@ -223,7 +202,6 @@ $(async () => {
 		updateTable();
 	}, 1000);
 
-	// User Actions
 	$(`#select-date`).change((e) => {
 		let date = $(e.target).val();
 		window.location = `./options?symbol=${symbol}&date=${date}&contractType=${contractType}`;
